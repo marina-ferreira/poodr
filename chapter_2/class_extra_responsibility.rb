@@ -47,7 +47,8 @@ class Gear
   end
 end
 
-# Once isolated it's also easier to move it to a class of its own when the time comes. Isolation allows change without consequence and reuse without duplication.
+# Once isolated it's also easier to move it to a class of its own when the time
+# comes. Isolation allows change without consequence and reuse without duplication.
 
 class Gear
   attr_reader :chainring, :cog, :wheel
