@@ -31,7 +31,7 @@ class Gear
   end
 
   def wheel
-    @wheel = Wheel.new(rim, tire)
+    @wheel ||= Wheel.new(rim, tire)
   end
 end
 
