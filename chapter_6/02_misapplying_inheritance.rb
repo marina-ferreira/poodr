@@ -27,7 +27,7 @@ class MountainBike < Bicycle
 	end
 
 	def spares
-		super.merge({ rear_shock: rear_shock })
+		super.merge({ rear_shock: rear_shock, front_shock: front_shock })
 	end
 end
 
@@ -48,3 +48,9 @@ mountain_bike.spares
 #  :front_shock => 'Manitou',
 #  :rear_shock => 'Fox'
 # }
+
+=begin
+  An attempt to solve the missing inheritance issue is to remove the MountainBike behavior to a subclass. That won't work because Bicycle is mixing behavior that is general to all bikes with behavior specific to RoadBikes. As a result, on instatiating a MountainBike, some of its behavior is correct, some is wrong and some doesn't even apply.
+
+	💡 Class inheritance should follow generalization-specialization relationship.
+=end
