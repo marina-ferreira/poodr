@@ -1,3 +1,4 @@
+# ok 🍀
 class Bicycle
 	attr_reader :size, :chain, :tire_size
 
@@ -54,4 +55,7 @@ bent = RecumbentBike.new
   Wrapping the default in methods is not only for good practice in general,
 but here, that structure also allows for subclasses to override this methods,
 specializing them.
+
+	Any class that implements the Template Method Pattern must supply an
+implementation for every message it sends, even if it just returns an error.
 =end
