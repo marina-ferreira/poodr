@@ -35,7 +35,7 @@ class Bicycle
 end
 
 # ok 🍀
-class RoadBike
+class RoadBike < Bicycle
 	attr_reader :tape_color
 
   def post_initialize(args)
@@ -52,7 +52,7 @@ class RoadBike
 end
 
 # ok 🍀
-class MountainBike
+class MountainBike < Bicycle
 	attr_reader :front_shock, :rear_shock
 
 	def post_initialize(args)
