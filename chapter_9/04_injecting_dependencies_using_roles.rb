@@ -1,0 +1,59 @@
+require 'minitest/autorun'
+
+class Gear
+	attr_reader :chainring, :cog, :wheel
+
+	def initialize(args)
+		@chainring = args[:chainring]
+		@cog = args[:cog]
+		@wheel = args[:wheel]
+	end
+
+	def gear_inches
+		ratio * wheel.diameter
+	end
+
+	def ratio
+		chainring / cog.to_f
+	end
+end
+
+class Wheel
+	attr_reader :rim, :tire
+
+	def initialize(rim, tire)
+		@rim = rim
+		@tire = tire
+	end
+
+	def diameter
+		rim + (tire * 2)
+	end
+end
+
+class DiameterDouble # A player of the Diameterizable role
+	def diameter
+		10
+	end
+end
+
+class GearTest < Minitest::Test
+	def test_calculates_gear_inches
+		gear = Gear.new(chainring: 52, cog: 11, wheel: DiameterDouble.new)
+		assert_in_delta(47.27, gear.gear_inches, 0.01)
+	end
+end
+
+=begin
+	When code and tests use the same collaborating objects, tests fail when they
+should.
+
+Error:
+	GearTest#test_calculates_gear_inches:
+	NoMethodError: undefined method `diameter' for #<Wheel:0x00007fd745075db8 @rim=26, @tire=1.5>
+
+	There are cases where locating and testing the abstraction will serve you better.
+	The Wheel plays the Diameterizable role. What if there are hundreds of
+Diameterizables, how do you choose which one to inject? What if Diameterizable is
+costly to create, how do you avoid running lots of unnecessary, time consuming code?
+=end
