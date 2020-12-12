@@ -7,7 +7,7 @@
 <br />
 
 <p align="left">
-  <img alt="Ruby Version" src="https://img.shields.io/badge/ruby-2.7.0-ab1501?style=for-the-badge&logo=ruby">
+  <img alt="Ruby Version" src="https://img.shields.io/badge/ruby-2.5.1-ab1501?style=for-the-badge&logo=ruby">
   <br />
 </p>
 
